@@ -1,17 +1,15 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {emoData} from '../data/data';
+import emoData from '../data/data';
 
 const Main = () => {
 
     const RenderCard = ({item}) => {
         return(
-            <View>
-            <Text>hik</Text>
-            {/* <Image style={styles.emoImage} source={item.emopic} /> */}
+            <View style={{backgroundColor: 'brown', marginHorizontal: 20, marginTop: 50,}}>
+            <Image style={styles.emoImage} source={item.emopic} />
             <Text style={styles.text}>{item.text}</Text>
-            <Text>He;llo</Text>
             </View>
         )
     }
@@ -21,8 +19,12 @@ const Main = () => {
         <LinearGradient colors={['#ffafbd','#ffc3a0']} style={styles.linearGradientScreen}>
         <FlatList 
             data={emoData} 
+            horizontal
             renderItem={RenderCard}
-            keyExtractor={item => item.emoNumber} />
+            keyExtractor={item => item.emoNumber}
+            style={{flexDirection: 'row', flex: 2}} 
+            />
+        <Text>Hello After</Text>
         </LinearGradient>
         </View>
     )
@@ -41,14 +43,14 @@ const styles = StyleSheet.create({
         fontFamily: 'sans-serif-condensed',
     },
     View: {
-        flexDirection: 'column',
         flex: 1,
     },
     emoImage: {
         height: 200,
-        width: 300,
+        width: 270,
+        aspectRatio: 1.2,
         alignSelf: 'center',
-        marginTop: 50
+        marginTop: 50,
     }
 })
 
