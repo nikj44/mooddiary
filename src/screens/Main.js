@@ -7,13 +7,14 @@ const Main = () => {
 
     const RenderCard = ({item}) => {
         return(
-            <View style={{backgroundColor: 'brown', marginHorizontal: 20, marginTop: 50,}}>
+            <View style={{backgroundColor: '#00008B', marginHorizontal: 10, alignSelf: 'center', borderRadius: 30, borderColor: 'grey', borderWidth: 5}}>
             <Image style={styles.emoImage} source={item.emopic} />
             <Text style={styles.text}>{item.text}</Text>
             </View>
         )
     }
 
+    //This is main
     return (
         <View style={styles.View}>
         <LinearGradient colors={['#ffafbd','#ffc3a0']} style={styles.linearGradientScreen}>
@@ -21,10 +22,9 @@ const Main = () => {
             data={emoData} 
             horizontal
             renderItem={RenderCard}
-            keyExtractor={item => item.emoNumber}
-            style={{flexDirection: 'row', flex: 2}} 
+            keyExtractor={item => item.emoNumber} 
+            style={{flexDirection: 'row', flex: 1}} 
             />
-        <Text>Hello After</Text>
         </LinearGradient>
         </View>
     )
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontSize: 30,
         fontFamily: 'sans-serif-condensed',
+        marginBottom: 10
     },
     View: {
         flex: 1,

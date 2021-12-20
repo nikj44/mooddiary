@@ -1,5 +1,7 @@
 package com.mooddiary;
 
+import android.os.Bundle; //For navigation
+
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
@@ -12,4 +14,8 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "mooddiary";
   }
+  @Override //For navigation
+  protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(null);
+}
 }
