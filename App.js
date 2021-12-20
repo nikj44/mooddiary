@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TabBarIOSItem } from 'react-native'
 import Main from './src/screens/Main'
-import Stats from './src/screens/Stats'
+import Stats from './src/screens/Something'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -33,7 +33,7 @@ const App = () => {
         headerTitleStyle: {
           color: '#00008B',
         },
-        headerTransparent: 1,
+        // headerTransparent: 1,
         headerTitleAlign: 'center'
       }} />
     </Tab.Navigator>

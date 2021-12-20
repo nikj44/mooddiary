@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Text, Button } from 'react-native'
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -19,12 +19,17 @@ const Stats = () => {
       
     return (
         <View style={{flex: 1}}>
-            <Text>Stats Page</Text>
-            <Button title='Hello' style={{
-    
-            }} />
+            <Text color='black'>Stats Page</Text>
+            <Button title='Hello' style={styles.button}></Button>
         </View>
     )
 }
 
 export default Stats
+
+const styles = StyleSheet.create({
+  button: {
+    width: 30,
+    height: 20
+  }
+})
