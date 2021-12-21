@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Stats = () => {
+
+    const [awesome, setAwesome] = useState(null);
+    const [notsure, setNotSure] = useState(null);
+    const [angry, setAngry] = useState(null);
+    const [dreaming, setDreaming] = useState(null);
+    const [geek, setGeek] = useState(null);
+
 
     const getData = async () => {
         try {
@@ -14,13 +21,12 @@ const Stats = () => {
           }
         } catch(e) {
           // error reading value
+          alert('THere is no data')
         }
       }
       
     return (
         <View style={{flex: 1}}>
-            <Text color='black'>Stats Page</Text>
-            <Button title='Hello' style={styles.button}></Button>
         </View>
     )
 }

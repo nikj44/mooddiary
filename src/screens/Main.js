@@ -1,19 +1,41 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, FlatList} from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import emoData from '../data/data';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Main = () => {
 
     const RenderCard = ({item}) => {
         return(
-            <View style={{backgroundColor: '#00008B', marginHorizontal: 10, alignSelf: 'center', borderRadius: 30, borderColor: 'grey', borderWidth: 5}}>
+            <TouchableOpacity style={{backgroundColor: '#00008B', marginHorizontal: 10, alignSelf: 'center', borderRadius: 30, borderColor: 'grey', borderWidth: 5}} 
+            onPress={plusOne}>
             <Image style={styles.emoImage} source={item.emopic} />
             <Text style={styles.text}>{item.text}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 
+    const plusOne = async () => {
+        try {
+            await AsyncStorage.setItem('awesome', 'one')
+          } catch (e) {
+            // saving error
+            alert('No set Item')
+          }
+        try {
+            const awesome_value = await AsyncStorage.getItem('awesome')
+            if(awesome_value !== null) {
+              // value previously stored
+              console.log('Awesome Value is',awesome_value)
+            }
+          } catch(e) {
+            // error reading value
+            alert('THere is no data')
+          }
+    }
+ 
     //This is main
     return (
         <View style={styles.View}>

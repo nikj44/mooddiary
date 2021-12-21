@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TabBarIOSItem } from 'react-native'
 import Main from './src/screens/Main'
-import Stats from './src/screens/Something'
+import Stats from './src/screens/Stats'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
