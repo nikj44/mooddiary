@@ -18,22 +18,7 @@ const Main = () => {
     }
 
     const plusOne = async () => {
-        try {
             await AsyncStorage.setItem('awesome', 'one')
-          } catch (e) {
-            // saving error
-            alert('No set Item')
-          }
-        try {
-            const awesome_value = await AsyncStorage.getItem('awesome')
-            if(awesome_value !== null) {
-              // value previously stored
-              console.log('Awesome Value is',awesome_value)
-            }
-          } catch(e) {
-            // error reading value
-            alert('THere is no data')
-          }
     }
  
     //This is main

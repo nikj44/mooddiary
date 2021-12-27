@@ -33,7 +33,7 @@ const App = () => {
         headerTitleStyle: {
           color: '#00008B',
         },
-        // headerTransparent: 1,
+        headerTransparent: 1,
         headerTitleAlign: 'center'
       }} />
     </Tab.Navigator>
