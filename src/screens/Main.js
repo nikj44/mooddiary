@@ -10,15 +10,25 @@ const Main = () => {
     const RenderCard = ({item}) => {
         return(
             <TouchableOpacity style={{backgroundColor: '#00008B', marginHorizontal: 10, alignSelf: 'center', borderRadius: 30, borderColor: 'grey', borderWidth: 5}} 
-            onPress={plusOne}>
+            onPress={()=>plusOne(item.label)}>
             <Image style={styles.emoImage} source={item.emopic} />
             <Text style={styles.text}>{item.text}</Text>
             </TouchableOpacity>
         )
     }
 
-    const plusOne = async () => {
-            await AsyncStorage.setItem('awesome', 'one')
+    const plusOne = async (label) => {
+        try{
+            await AsyncStorage.getItem(label)
+        }catch {
+            await AsyncStorage.setItem(label,'0')
+        }
+        const labelValue = await AsyncStorage.getItem(label)
+        let integer = parseInt(labelValue)
+        integer = integer + 1
+        const string = integer.toString();
+        await AsyncStorage.setItem(label, string)
+        alert('Your Mood has been recorded')
     }
  
     //This is main

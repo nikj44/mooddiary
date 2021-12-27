@@ -1,14 +1,59 @@
-import React from 'react'
-import { View, Text, TabBarIOSItem } from 'react-native'
+import React, { useEffect } from 'react'
 import Main from './src/screens/Main'
 import Stats from './src/screens/Stats'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+
+  useEffect(()=>{
+    (async() => {
+      try{
+        let Awesome_VV = await AsyncStorage.getItem('awesome')
+        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('awesome','0')
+         Awesome_VV = await AsyncStorage.getItem('notsure')
+        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('notsure','0')
+         Awesome_VV = await AsyncStorage.getItem('angry')
+        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('angry','0')
+         Awesome_VV = await AsyncStorage.getItem('dreaming')
+        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('dreaming','0')
+         Awesome_VV = await AsyncStorage.getItem('sad')
+        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('sad','0')
+      }catch (error) {
+        alert('Some EWrror has come')
+        console.log('erro2',error)
+      }
+
+    //   try {
+    //   const Awesome_VV = await AsyncStorage.getItem('awesome')
+    //   console.log('awesome value is ',Awesome_VV)
+    // } catch {
+    //   await AsyncStorage.setItem('awesome','0')
+    // }    try {
+    //   const Not_sureVV = await AsyncStorage.getItem('notsure')
+    //   console.log('not sure value is ',Not_sureVV)
+    // } catch {
+    //   await AsyncStorage.setItem('notsure','0')
+    // }    try {
+    //   await AsyncStorage.getItem('angry')
+    // } catch {
+    //   await AsyncStorage.setItem('angry','0')
+    // }    try {
+    //   await AsyncStorage.getItem('dreaming')
+    // } catch {
+    //   await AsyncStorage.setItem('dreaming','0')
+    // }    try {
+    //   await AsyncStorage.getItem('sad')
+    // } catch {
+    //   await AsyncStorage.setItem('sad','0')
+    // }
+    }) ();
+  },[]);
+
   return (
     <NavigationContainer>
     <Tab.Navigator screenOptions={{
