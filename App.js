@@ -14,16 +14,31 @@ const App = () => {
     (async() => {
       try{
         let Awesome_VV = await AsyncStorage.getItem('awesome')
-        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('awesome','0')
-         Awesome_VV = await AsyncStorage.getItem('notsure')
-        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('notsure','0')
-         Awesome_VV = await AsyncStorage.getItem('angry')
-        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('angry','0')
-         Awesome_VV = await AsyncStorage.getItem('dreaming')
-        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('dreaming','0')
-         Awesome_VV = await AsyncStorage.getItem('sad')
-        !Number.isInteger(Awesome_VV) && await AsyncStorage.setItem('sad','0')
-      }catch (error) {
+         Awesome_VV = parseInt(Awesome_VV)
+         if(Number.isInteger(Awesome_VV) == false){
+          await AsyncStorage.setItem('awesome','0')
+         }
+        Awesome_VV = await AsyncStorage.getItem('notsure')
+        Awesome_VV = parseInt(Awesome_VV)
+        if(Number.isInteger(Awesome_VV) == false){
+          await AsyncStorage.setItem('notsure','0')
+         }         
+        Awesome_VV = await AsyncStorage.getItem('angry')
+        Awesome_VV = parseInt(Awesome_VV)
+        if(Number.isInteger(Awesome_VV) == false){
+          await AsyncStorage.setItem('angry','0')
+         }         
+        Awesome_VV = await AsyncStorage.getItem('dreaming')
+        Awesome_VV = parseInt(Awesome_VV)
+        if(Number.isInteger(Awesome_VV) == false){
+          await AsyncStorage.setItem('dreaming','0')
+         }         
+        Awesome_VV = await AsyncStorage.getItem('sad')
+        Awesome_VV = parseInt(Awesome_VV)
+        if(Number.isInteger(Awesome_VV) == false){
+          await AsyncStorage.setItem('sad','0')
+         }      
+        }catch (error) {
         alert('Some EWrror has come')
         console.log('erro2',error)
       }
